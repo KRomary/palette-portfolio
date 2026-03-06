@@ -61,7 +61,7 @@ const ProjectsPage = () => {
               onClick={() => setOriginFilter(key)}
               className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${originFilter === key ? "bg-primary text-primary-foreground border-primary" : "bg-card text-card-foreground border-border hover:border-primary/50"}`}
             >
-              {logo && <img src={logo} alt={t(originLabels[key], lang)} className="h-4 w-auto" />}
+              {logo && <img src={logo} alt={t(originLabels[key], lang)} className="h-5 w-5 rounded object-contain" />}
               {t(originLabels[key], lang)}
             </button>
           );
@@ -104,7 +104,7 @@ const ProjectsPage = () => {
                                 {project.title}
                               </h3>
                               {originLogo && (
-                                <img src={originLogo} alt={t(originLabels[project.origin], lang)} className="h-6 w-auto opacity-70" />
+                                <img src={originLogo} alt={t(originLabels[project.origin], lang)} className="h-8 w-8 rounded-lg object-contain bg-white/80 p-0.5" />
                               )}
                               <Badge variant="outline" className={st.color}>
                                 {t(st.label, lang)}

@@ -56,7 +56,7 @@ const AboutPage = () => {
         </h2>
         <Card>
           <CardContent className="p-6 flex items-start gap-4">
-            <img src={logoCesi} alt="CESI" className="h-14 w-14 rounded-lg object-contain shrink-0" />
+            <img src={logoCesi} alt="CESI" className="h-14 w-14 rounded-xl object-cover shrink-0 bg-[#FFD600]" />
             <div>
               <h3 className="font-semibold text-card-foreground text-lg">
                 {t({ fr: "Diplôme d'Ingénieur en Sciences du Numérique", en: "Engineering Degree in Digital Sciences" }, lang)}
@@ -82,7 +82,7 @@ const AboutPage = () => {
         <div className="space-y-4">
           <Card>
             <CardContent className="p-6 flex items-start gap-4">
-              <img src={logoSia} alt="SIA Habitat" className="h-12 w-auto shrink-0 mt-1" />
+              <img src={logoSia} alt="SIA Habitat" className="h-14 w-14 rounded-xl object-contain shrink-0 bg-white p-1" />
               <div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <h3 className="font-semibold text-card-foreground text-lg">
@@ -104,7 +104,7 @@ const AboutPage = () => {
           </Card>
           <Card>
             <CardContent className="p-6 flex items-start gap-4">
-              <img src={logoUpv} alt="UPV" className="h-12 w-auto shrink-0 mt-1" />
+              <img src={logoUpv} alt="UPV" className="h-14 w-14 rounded-xl object-contain shrink-0 bg-white p-1" />
               <div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <h3 className="font-semibold text-card-foreground text-lg">
