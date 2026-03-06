@@ -9,7 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle2, Clock, Circle, ArrowRight } from "lucide-react";
 import logoCesi from "@/assets/logo-cesi.png";
-import logoSia from "@/assets/logo-sia.svg";
+import logoSia from "@/assets/logo-sia.jpg";
 import logoUpv from "@/assets/logo-upv.png";
 
 const statusConfig = {
