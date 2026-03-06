@@ -42,11 +42,11 @@ export const tools = [
   "Power Automate", "Jupyter Notebook", "Ulis (Sopra Steria)",
 ];
 
-export const originLabels: Record<ProjectOrigin, { fr: string; en: string }> = {
-  cesi: { fr: "CESI", en: "CESI" },
-  sia: { fr: "SIA Habitat", en: "SIA Habitat" },
-  upv: { fr: "UPV Valencia", en: "UPV Valencia" },
-  personal: { fr: "Personnel", en: "Personal" },
+export const originLabels: Record<ProjectOrigin, { fr: string; en: string; es: string }> = {
+  cesi: { fr: "CESI", en: "CESI", es: "CESI" },
+  sia: { fr: "SIA Habitat", en: "SIA Habitat", es: "SIA Habitat" },
+  upv: { fr: "UPV Valencia", en: "UPV Valencia", es: "UPV Valencia" },
+  personal: { fr: "Personnel", en: "Personal", es: "Personal" },
 };
 
 export const projectsData: ProjectData[] = [

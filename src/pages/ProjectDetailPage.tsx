@@ -8,9 +8,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink, CheckCircle2, Clock, Circle, Target, Wrench, Calendar, Coins, Map, FileText } from "lucide-react";
 
 const statusConfig = {
-  done: { label: { fr: "Terminé", en: "Done" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
-  "in-progress": { label: { fr: "En cours", en: "In Progress" }, color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20", icon: Clock },
-  planned: { label: { fr: "Planifié", en: "Planned" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
+  done: { label: { fr: "Terminé", en: "Done", es: "Terminado" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
+  "in-progress": { label: { fr: "En cours", en: "In Progress", es: "En curso" }, color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20", icon: Clock },
+  planned: { label: { fr: "Planifié", en: "Planned", es: "Planificado" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
 };
 
 const RoadmapSection = ({ steps, lang }: { steps: RoadmapStep[]; lang: Lang }) => (
@@ -43,7 +43,7 @@ const RoadmapSection = ({ steps, lang }: { steps: RoadmapStep[]; lang: Lang }) =
               <p className="text-sm text-muted-foreground mt-1">{t(step.detail, lang)}</p>
               {step.link && (
                 <a href={step.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1">
-                  {t({ fr: "Voir la documentation", en: "View documentation" }, lang)} <ExternalLink size={12} />
+                  {t({ fr: "Voir la documentation", en: "View documentation", es: "Ver documentación" }, lang)} <ExternalLink size={12} />
                 </a>
               )}
             </div>
@@ -78,7 +78,7 @@ const ProjectDetailPage = () => {
       {/* Back link */}
       <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
         <ArrowLeft size={16} />
-        {t({ fr: "Retour aux projets", en: "Back to projects" }, lang)}
+        {t({ fr: "Retour aux projets", en: "Back to projects", es: "Volver a proyectos" }, lang)}
       </Link>
 
       {/* Header */}
@@ -111,7 +111,7 @@ const ProjectDetailPage = () => {
             <CardContent className="p-5">
               <h3 className="font-display font-bold text-card-foreground mb-3 flex items-center gap-2">
                 <Target size={16} className="text-primary" />
-                {t({ fr: "Objectifs", en: "Objectives" }, lang)}
+                {t({ fr: "Objectifs", en: "Objectives", es: "Objetivos" }, lang)}
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside">
                 {project.objectives.map((o, i) => <li key={i}>{t(o, lang)}</li>)}
@@ -125,7 +125,7 @@ const ProjectDetailPage = () => {
             <CardContent className="p-5">
               <h3 className="font-display font-bold text-card-foreground mb-3 flex items-center gap-2">
                 <Wrench size={16} className="text-primary" />
-                {t({ fr: "Outils", en: "Tools" }, lang)}
+                {t({ fr: "Outils", en: "Tools", es: "Herramientas" }, lang)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tools.map((tool) => (
@@ -141,7 +141,7 @@ const ProjectDetailPage = () => {
             <CardContent className="p-5">
               <h3 className="font-display font-bold text-card-foreground mb-3 flex items-center gap-2">
                 <Calendar size={16} className="text-primary" />
-                {t({ fr: "Délais", en: "Timeline" }, lang)}
+                {t({ fr: "Délais", en: "Timeline", es: "Plazos" }, lang)}
               </h3>
               <p className="text-sm text-muted-foreground">{t(project.timeline, lang)}</p>
             </CardContent>
@@ -153,7 +153,7 @@ const ProjectDetailPage = () => {
             <CardContent className="p-5">
               <h3 className="font-display font-bold text-card-foreground mb-3 flex items-center gap-2">
                 <Coins size={16} className="text-primary" />
-                {t({ fr: "Coût", en: "Cost" }, lang)}
+                {t({ fr: "Coût", en: "Cost", es: "Coste" }, lang)}
               </h3>
               <p className="text-sm text-muted-foreground">{t(project.cost, lang)}</p>
             </CardContent>

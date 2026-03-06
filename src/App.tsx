@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AccessibilityProvider } from "@/contexts/AccessibilityContext";
 import Navbar from "@/components/Navbar";
+import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
@@ -27,6 +28,7 @@ const App = () => (
             <BrowserRouter>
               <div className="flex flex-col min-h-screen">
                 <Navbar />
+                <ScrollToTop />
                 <main className="flex-1">
                   <Routes>
                     <Route path="/" element={<HomePage />} />
