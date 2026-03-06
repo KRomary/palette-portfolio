@@ -21,14 +21,15 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-display text-xl font-black tracking-tight">
-          <span className="text-primary">K.</span>
-          <span className="text-foreground">Romary</span>
+      <div className="container mx-auto flex items-center justify-between h-16 px-4 relative">
+        {/* Logo left */}
+        <Link to="/" className="font-display text-xl font-black tracking-tight shrink-0">
+          <span className="text-primary inline-block" style={{ transform: "scaleX(-1)" }}>K</span>
+          <span className="text-foreground -ml-0.5">Romary</span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-5">
+        {/* Center links */}
+        <div className="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
           {links.map((link) => (
             <Link
               key={link.to}
@@ -40,10 +41,12 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+        </div>
 
+        {/* Right controls */}
+        <div className="hidden md:flex items-center gap-3 shrink-0">
           <LanguageDropdown />
           <ThemeToggle />
-
           <Link
             to="/settings"
             className={`p-2 rounded-full hover:bg-accent/20 transition-colors ${
