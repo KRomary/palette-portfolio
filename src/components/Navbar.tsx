@@ -25,19 +25,19 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4 relative">
+      <div className="container mx-auto flex items-center justify-between h-16 px-4">
         {/* Logo left */}
         <Link to="/" className="shrink-0">
           <img src={theme === "dark" ? logoKR : logoKRLight} alt="KRomary" className="h-8 object-contain" />
         </Link>
 
         {/* Center links */}
-        <div className="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:flex items-center gap-5">
           {links.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`text-sm font-medium transition-colors hover:text-primary whitespace-nowrap ${
                 location.pathname === link.to ? "text-primary" : "text-muted-foreground"
               }`}
             >
