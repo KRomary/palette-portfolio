@@ -6,10 +6,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
+import { useTheme } from "@/contexts/ThemeContext";
 import logoKR from "@/assets/logo-kr.png";
+import logoKRLight from "@/assets/logo-kr-light.png";
 
 const Navbar = () => {
   const { lang } = useLanguage();
+  const { theme } = useTheme();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -25,7 +28,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4 relative">
         {/* Logo left */}
         <Link to="/" className="shrink-0">
-          <img src={logoKR} alt="KRomary" className="h-8 object-contain" />
+          <img src={theme === "dark" ? logoKR : logoKRLight} alt="KRomary" className="h-8 object-contain" />
         </Link>
 
         {/* Center links */}
