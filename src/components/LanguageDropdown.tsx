@@ -30,7 +30,7 @@ const LanguageDropdown = () => {
   const orderedLangs = [lang, ...allLangs.filter((l) => l !== lang)];
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative z-[80]">
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-border text-sm font-medium text-foreground hover:border-primary transition-colors"
@@ -41,13 +41,16 @@ const LanguageDropdown = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-1 w-36 rounded-lg border border-border bg-popover shadow-lg z-50 overflow-hidden">
+        <div className="absolute right-0 mt-1 w-36 rounded-lg border border-border bg-popover text-popover-foreground shadow-lg z-[90] overflow-hidden">
           {orderedLangs.map((l) => (
             <button
               key={l}
-              onClick={() => { setLang(l); setOpen(false); }}
+              onClick={() => {
+                setLang(l);
+                setOpen(false);
+              }}
               className={`flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-accent/20 transition-colors ${
-                l === lang ? "bg-accent/10 text-primary font-semibold" : "text-foreground"
+                l === lang ? "bg-accent/10 text-primary font-semibold" : "text-popover-foreground"
               }`}
             >
               <img src={langConfig[l].flag} alt={langConfig[l].label} className="h-4 w-5 rounded-sm object-cover" />
