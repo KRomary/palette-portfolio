@@ -121,7 +121,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "beauty-survey",
     title: "Beauty Survey App",
-    origin: "cesi",
+    origin: "personal",
     desc: {
       fr: "Application Android permettant de sonder des personnes sur la beauté de différents profils.",
       en: "Android application to survey people on the beauty of different profiles.",
@@ -222,30 +222,5 @@ export const projectsData: ProjectData[] = [
     tools: ["Python", "SQL", "Excel"],
     timeline: { fr: "2024", en: "2024", es: "2024" },
     cost: { fr: "N/A (entreprise)", en: "N/A (company)", es: "N/A (empresa)" },
-  },
-  {
-    slug: "portfolio-web",
-    title: "Portfolio Web",
-    origin: "personal",
-    desc: {
-      fr: "Ce site portfolio personnel construit avec React, TypeScript et Tailwind CSS.",
-      en: "This personal portfolio website built with React, TypeScript and Tailwind CSS.",
-      es: "Este sitio portfolio personal construido con React, TypeScript y Tailwind CSS.",
-    },
-    longDesc: {
-      fr: "Ce site portfolio personnel construit avec React, TypeScript et Tailwind CSS. Bilingue, accessible et responsive.",
-      en: "This personal portfolio website built with React, TypeScript and Tailwind CSS. Bilingual, accessible and responsive.",
-      es: "Este sitio portfolio personal construido con React, TypeScript y Tailwind CSS. Trilingüe, accesible y responsive.",
-    },
-    tags: ["React", "TypeScript", "Tailwind CSS"],
-    status: "done",
-    icon: Globe,
-    objectives: [
-      { fr: "Présenter mes compétences et projets", en: "Showcase my skills and projects", es: "Presentar mis competencias y proyectos" },
-      { fr: "Site bilingue, accessible et responsive", en: "Bilingual, accessible and responsive site", es: "Sitio trilingüe, accesible y responsive" },
-    ],
-    tools: ["React", "TypeScript", "Tailwind CSS", "VS Code", "GitHub"],
-    timeline: { fr: "2025", en: "2025", es: "2025" },
-    cost: { fr: "Gratuit", en: "Free", es: "Gratis" },
   },
 ];
