@@ -26,7 +26,7 @@ const skills = [
 
 const languages = [
   { name: { fr: "Français", en: "French" }, level: { fr: "Langue maternelle", en: "Native" }, percent: 100 },
-  { name: { fr: "Anglais", en: "English" }, level: { fr: "TOEIC niveau B2", en: "TOEIC B2 level" }, percent: 88 },
+  { name: { fr: "Anglais", en: "English" }, level: { fr: "TOEIC niveau B2", en: "TOEIC B2 level" }, percent: 15 },
 ];
 
 const interests = ["Football", "Musculation", "Science", "Géographie", "Informatique", "Réseaux sociaux"];
