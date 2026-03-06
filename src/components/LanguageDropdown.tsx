@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ChevronDown } from "lucide-react";
-import countryFlagEmojis from "country-flag-emojis";
+import flagFr from "@/assets/flag-fr.png";
+import flagGb from "@/assets/flag-gb.png";
 
-const langConfig: Record<string, { code: string; label: string }> = {
-  fr: { code: "FR", label: "FR" },
-  en: { code: "GB", label: "GB" },
+const langConfig: Record<string, { flag: string; label: string }> = {
+  fr: { flag: flagFr, label: "FR" },
+  en: { flag: flagGb, label: "GB" },
 };
 
 const LanguageDropdown = () => {
@@ -29,7 +30,7 @@ const LanguageDropdown = () => {
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-border text-sm font-medium text-foreground hover:border-primary transition-colors"
       >
-        <span className="text-base leading-none">{countryFlagEmojis.emojiByCountryCode(langConfig[lang].code)}</span>
+        <img src={langConfig[lang].flag} alt={langConfig[lang].label} className="h-4 w-5 rounded-sm object-cover" />
         <span className="hidden sm:inline">{langConfig[lang].label}</span>
         <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -44,7 +45,7 @@ const LanguageDropdown = () => {
                 l === lang ? "bg-accent/10 text-primary font-semibold" : "text-foreground"
               }`}
             >
-              <span className="text-base">{countryFlagEmojis.emojiByCountryCode(langConfig[l].code)}</span>
+              <img src={langConfig[l].flag} alt={langConfig[l].label} className="h-4 w-5 rounded-sm object-cover" />
               {langConfig[l].label}
             </button>
           ))}
