@@ -22,9 +22,9 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
-        <Link to="/" className="font-display text-xl font-bold">
-          <span className="text-primary">B.</span>
-          <span className="text-foreground">Dumortier</span>
+        <Link to="/" className="font-display text-xl font-black tracking-tight">
+          <span className="text-primary">K.</span>
+          <span className="text-foreground">Nromary</span>
         </Link>
 
         {/* Desktop links */}
