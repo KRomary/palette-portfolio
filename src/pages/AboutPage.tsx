@@ -10,25 +10,26 @@ import logoSia from "@/assets/logo-sia.jpg";
 import logoUpv from "@/assets/logo-upv.png";
 
 const skills = [
-  { icon: Database, label: { fr: "Data Science & BI", en: "Data Science & BI", es: "Data Science & BI" }, tools: "Python, SQL, Power BI, Power Automate, DAX, Jupyter" },
-  { icon: Code, label: { fr: "Développement", en: "Development", es: "Desarrollo" }, tools: "C, C++, C#, PHP, JavaScript, HTML, CSS" },
-  { icon: Globe, label: { fr: "Bases de données", en: "Databases", es: "Bases de datos" }, tools: "MySQL, PostgreSQL, MongoDB (NoSQL)" },
-  { icon: BarChart3, label: { fr: "Environnements & Outils", en: "Environments & Tools", es: "Entornos y Herramientas" }, tools: "VS Code, GitHub, Microsoft Power Platform, Excel" },
+  {
+    icon: Database,
+    label: { fr: "Data Science & BI", en: "Data Science & BI" },
+    tools: "Python, SQL, Power BI, Power Automate, DAX, Jupyter",
+  },
+  { icon: Code, label: { fr: "Développement", en: "Development" }, tools: "C, C++, C#, PHP, JavaScript, HTML, CSS" },
+  { icon: Globe, label: { fr: "Bases de données", en: "Databases" }, tools: "MySQL, PostgreSQL, MongoDB (NoSQL)" },
+  {
+    icon: BarChart3,
+    label: { fr: "Environnements & Outils", en: "Environments & Tools" },
+    tools: "VS Code, GitHub, Microsoft Power Platform, Excel",
+  },
 ];
 
 const languages = [
-  { name: { fr: "Français", en: "French", es: "Francés" }, level: { fr: "Langue maternelle", en: "Native", es: "Lengua materna" }, percent: 100 },
-  { name: { fr: "Anglais", en: "English", es: "Inglés" }, level: { fr: "TOEIC B2 : 880/990", en: "TOEIC B2: 880/990", es: "TOEIC B2: 880/990" }, percent: 75 },
+  { name: { fr: "Français", en: "French" }, level: { fr: "Langue maternelle", en: "Native" }, percent: 100 },
+  { name: { fr: "Anglais", en: "English" }, level: { fr: "TOEIC niveau B2", en: "TOEIC B2 level" }, percent: 88 },
 ];
 
-const interests: { fr: string; en: string; es: string }[] = [
-  { fr: "Football", en: "Football", es: "Fútbol" },
-  { fr: "Musculation", en: "Weightlifting", es: "Musculación" },
-  { fr: "Science", en: "Science", es: "Ciencia" },
-  { fr: "Géographie", en: "Geography", es: "Geografía" },
-  { fr: "Informatique", en: "Computer Science", es: "Informática" },
-  { fr: "Réseaux sociaux", en: "Social Media", es: "Redes sociales" },
-];
+const interests = ["Football", "Musculation", "Science", "Géographie", "Informatique", "Réseaux sociaux"];
 
 const AboutPage = () => {
   const { lang } = useLanguage();
@@ -66,14 +67,23 @@ const AboutPage = () => {
             <img src={logoCesi} alt="CESI" className="h-14 w-14 rounded-xl object-cover shrink-0 bg-[#FFD600]" />
             <div>
               <h3 className="font-semibold text-card-foreground text-lg">
-                {t({ fr: "Diplôme d'Ingénieur en Sciences du Numérique", en: "Engineering Degree in Digital Sciences", es: "Título de Ingeniero en Ciencias Digitales" }, lang)}
+                {t(
+                  { fr: "Diplôme d'Ingénieur en Sciences du Numérique", en: "Engineering Degree in Digital Sciences" },
+                  lang,
+                )}
               </h3>
               <p className="text-primary font-medium mt-1">CESI École d'Ingénieurs — Lille</p>
               <p className="text-sm text-muted-foreground mt-1">
-                {t({ fr: "Sept. 2022 – Sept. 2025", en: "Sep 2022 – Sep 2025", es: "Sep 2022 – Sep 2025" }, lang)}
+                {t({ fr: "Sept. 2022 – Sept. 2025", en: "Sep 2022 – Sep 2025" }, lang)}
               </p>
               <Badge variant="secondary" className="mt-3">
-                {t({ fr: "Majeure : Data Science & Intelligence Artificielle", en: "Major: Data Science & Artificial Intelligence", es: "Especialidad: Data Science e Inteligencia Artificial" }, lang)}
+                {t(
+                  {
+                    fr: "Majeure : Data Science & Intelligence Artificielle",
+                    en: "Major: Data Science & Artificial Intelligence",
+                  },
+                  lang,
+                )}
               </Badge>
             </div>
           </CardContent>
@@ -84,16 +94,20 @@ const AboutPage = () => {
       <section>
         <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
           <Briefcase size={24} className="text-primary" />
-          {t({ fr: "Expériences professionnelles", en: "Work Experience", es: "Experiencia profesional" }, lang)}
+          {t({ fr: "Expériences professionnelles", en: "Work Experience" }, lang)}
         </h2>
         <div className="space-y-4">
           <Card>
             <CardContent className="p-6 flex items-start gap-4">
-              <img src={logoSia} alt="SIA Habitat" className="h-14 w-14 rounded-xl object-contain shrink-0 bg-white p-1" />
+              <img
+                src={logoSia}
+                alt="SIA Habitat"
+                className="h-14 w-14 rounded-xl object-contain shrink-0 bg-white p-1"
+              />
               <div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <h3 className="font-semibold text-card-foreground text-lg">
-                    {t({ fr: "Alternant Chargé de Mission Data", en: "Data Mission Analyst (Apprenticeship)", es: "Analista de Datos (Alternancia)" }, lang)}
+                    {t({ fr: "Alternant Chargé de Mission Data", en: "Data Mission Analyst (Apprenticeship)" }, lang)}
                   </h3>
                   <span className="text-sm text-muted-foreground whitespace-nowrap">
                     {t({ fr: "Août 2024 – Oct. 2025", en: "Aug 2024 – Oct 2025" }, lang)}
@@ -101,10 +115,42 @@ const AboutPage = () => {
                 </div>
                 <p className="text-primary font-medium mt-1">SIA Habitat — Douai</p>
                 <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
-                  <li>{t({ fr: "Tableaux de bord Power BI pour le contrôle de gestion (vacance locative)", en: "Power BI dashboards for management control (vacancy tracking)" }, lang)}</li>
-                  <li>{t({ fr: "Automatisation du suivi d'usage via Power Automate", en: "Usage monitoring automation via Power Automate" }, lang)}</li>
-                  <li>{t({ fr: "Script Python de détection de doublons fournisseurs (Data Quality)", en: "Python script for supplier duplicate detection (Data Quality)" }, lang)}</li>
-                  <li>{t({ fr: "Spécifications techniques du lot décisionnel (requêtes SQL documentées)", en: "Technical specifications for BI module (documented SQL queries)" }, lang)}</li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Tableaux de bord Power BI pour le contrôle de gestion (vacance locative)",
+                        en: "Power BI dashboards for management control (vacancy tracking)",
+                      },
+                      lang,
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Automatisation du suivi d'usage via Power Automate",
+                        en: "Usage monitoring automation via Power Automate",
+                      },
+                      lang,
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Script Python de détection de doublons fournisseurs (Data Quality)",
+                        en: "Python script for supplier duplicate detection (Data Quality)",
+                      },
+                      lang,
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Spécifications techniques du lot décisionnel (requêtes SQL documentées)",
+                        en: "Technical specifications for BI module (documented SQL queries)",
+                      },
+                      lang,
+                    )}
+                  </li>
                 </ul>
               </div>
             </CardContent>
@@ -115,18 +161,40 @@ const AboutPage = () => {
               <div>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
                   <h3 className="font-semibold text-card-foreground text-lg">
-                    {t({ fr: "Stage en Laboratoire de Recherche", en: "Research Lab Internship", es: "Prácticas en Laboratorio de Investigación" }, lang)}
+                    {t({ fr: "Stage en Laboratoire de Recherche", en: "Research Lab Internship" }, lang)}
                   </h3>
                   <span className="text-sm text-muted-foreground whitespace-nowrap">
                     {t({ fr: "Août 2023 – Jan. 2024", en: "Aug 2023 – Jan 2024" }, lang)}
                   </span>
                 </div>
                 <p className="text-primary font-medium mt-1">
-                  {t({ fr: "Université Polytechnique de Valence (UPV) — Valence, Espagne", en: "Polytechnic University of Valencia (UPV) — Valencia, Spain", es: "Universidad Politécnica de Valencia (UPV) — Valencia, España" }, lang)}
+                  {t(
+                    {
+                      fr: "Université Polytechnique de Valence (UPV) — Valence, Espagne",
+                      en: "Polytechnic University of Valencia (UPV) — Valencia, Spain",
+                    },
+                    lang,
+                  )}
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
-                  <li>{t({ fr: "Optimisation de trajets pour véhicules électriques en Python", en: "Route optimization for electric vehicles in Python" }, lang)}</li>
-                  <li>{t({ fr: "Intégration d'API de géocodage et données topographiques", en: "Geocoding API integration and topographic data" }, lang)}</li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Optimisation de trajets pour véhicules électriques en Python",
+                        en: "Route optimization for electric vehicles in Python",
+                      },
+                      lang,
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      {
+                        fr: "Intégration d'API de géocodage et données topographiques",
+                        en: "Geocoding API integration and topographic data",
+                      },
+                      lang,
+                    )}
+                  </li>
                 </ul>
               </div>
             </CardContent>
@@ -165,7 +233,7 @@ const AboutPage = () => {
       <section>
         <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
           <Languages size={24} className="text-primary" />
-          {t({ fr: "Langues", en: "Languages", es: "Idiomas" }, lang)}
+          {t({ fr: "Langues", en: "Languages" }, lang)}
         </h2>
         <div className="space-y-4">
           {languages.map((l, i) => (
@@ -184,12 +252,12 @@ const AboutPage = () => {
       <section>
         <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
           <Heart size={24} className="text-primary" />
-          {t({ fr: "Centres d'intérêt", en: "Interests", es: "Intereses" }, lang)}
+          {t({ fr: "Centres d'intérêt", en: "Interests" }, lang)}
         </h2>
         <div className="flex flex-wrap gap-2">
-          {interests.map((interest, i) => (
-            <Badge key={i} variant="outline" className="text-sm px-3 py-1">
-              {t(interest, lang)}
+          {interests.map((interest) => (
+            <Badge key={interest} variant="outline" className="text-sm px-3 py-1">
+              {interest}
             </Badge>
           ))}
         </div>
