@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/i18n/translations";
-import { projectsData } from "@/data/portfolio";
+import { projectsData, originLabels, ProjectOrigin } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle2, Clock, Circle, ArrowRight } from "lucide-react";
+import logoCesi from "@/assets/logo-cesi.png";
+import logoSia from "@/assets/logo-sia.svg";
+import logoUpv from "@/assets/logo-upv.png";
 
 const statusConfig = {
   done: { label: { fr: "Terminé", en: "Done" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
@@ -14,37 +18,73 @@ const statusConfig = {
   planned: { label: { fr: "Planifié", en: "Planned" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
 };
 
+const originLogos: Record<ProjectOrigin, string | null> = {
+  cesi: logoCesi,
+  sia: logoSia,
+  upv: logoUpv,
+  personal: null,
+};
+
 const ProjectsPage = () => {
   const { lang } = useLanguage();
+  const [originFilter, setOriginFilter] = useState<ProjectOrigin | "all">("all");
 
   const doneProjects = projectsData.filter((pr) => pr.status === "done");
   const ongoingProjects = projectsData.filter((pr) => pr.status !== "done");
+
+  const applyOriginFilter = (projects: typeof projectsData) =>
+    originFilter === "all" ? projects : projects.filter((p) => p.origin === originFilter);
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-16">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-3xl md:text-4xl font-display font-black text-primary mb-10"
+        className="text-3xl md:text-4xl font-display font-black text-primary mb-6"
       >
         {t({ fr: "Mes Projets", en: "My Projects" }, lang)}
       </motion.h1>
 
+      {/* Origin filter */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        <button
+          onClick={() => setOriginFilter("all")}
+          className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${originFilter === "all" ? "bg-primary text-primary-foreground border-primary" : "bg-card text-card-foreground border-border hover:border-primary/50"}`}
+        >
+          {t({ fr: "Toutes provenances", en: "All origins" }, lang)}
+        </button>
+        {(Object.keys(originLabels) as ProjectOrigin[]).map((key) => {
+          const logo = originLogos[key];
+          return (
+            <button
+              key={key}
+              onClick={() => setOriginFilter(key)}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${originFilter === key ? "bg-primary text-primary-foreground border-primary" : "bg-card text-card-foreground border-border hover:border-primary/50"}`}
+            >
+              {logo && <img src={logo} alt={t(originLabels[key], lang)} className="h-4 w-auto" />}
+              {t(originLabels[key], lang)}
+            </button>
+          );
+        })}
+      </div>
+
       <Tabs defaultValue="all" className="mb-8">
         <TabsList>
           <TabsTrigger value="all">{t({ fr: "Tous", en: "All" }, lang)}</TabsTrigger>
-          <TabsTrigger value="ongoing">{t({ fr: "En cours", en: "Ongoing" }, lang)} ({ongoingProjects.length})</TabsTrigger>
-          <TabsTrigger value="done">{t({ fr: "Terminés", en: "Completed" }, lang)} ({doneProjects.length})</TabsTrigger>
+          <TabsTrigger value="ongoing">{t({ fr: "En cours", en: "Ongoing" }, lang)} ({applyOriginFilter(ongoingProjects).length})</TabsTrigger>
+          <TabsTrigger value="done">{t({ fr: "Terminés", en: "Completed" }, lang)} ({applyOriginFilter(doneProjects).length})</TabsTrigger>
         </TabsList>
 
         {(["all", "ongoing", "done"] as const).map((tab) => {
-          const filtered = tab === "all" ? projectsData : tab === "ongoing" ? ongoingProjects : doneProjects;
+          const base = tab === "all" ? projectsData : tab === "ongoing" ? ongoingProjects : doneProjects;
+          const filtered = applyOriginFilter(base);
           return (
             <TabsContent key={tab} value={tab}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filtered.map((project, i) => {
                   const st = statusConfig[project.status];
                   const Icon = project.icon;
+                  const originLogo = originLogos[project.origin];
                   return (
                     <motion.div
                       key={project.slug}
@@ -63,6 +103,9 @@ const ProjectsPage = () => {
                               <h3 className="font-display text-lg font-bold text-card-foreground flex-1">
                                 {project.title}
                               </h3>
+                              {originLogo && (
+                                <img src={originLogo} alt={t(originLabels[project.origin], lang)} className="h-6 w-auto opacity-70" />
+                              )}
                               <Badge variant="outline" className={st.color}>
                                 {t(st.label, lang)}
                               </Badge>

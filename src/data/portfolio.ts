@@ -1,6 +1,7 @@
 import { Server, Trophy, Smartphone, BarChart3, Zap, Database, Globe } from "lucide-react";
 
 export type ProjectStatus = "done" | "in-progress" | "planned";
+export type ProjectOrigin = "cesi" | "sia" | "upv" | "personal";
 
 export interface RoadmapStep {
   label: { fr: string; en: string };
@@ -16,6 +17,7 @@ export interface ProjectData {
   longDesc?: { fr: string; en: string };
   tags: string[];
   status: ProjectStatus;
+  origin: ProjectOrigin;
   icon: React.ElementType;
   link?: string;
   objectives?: { fr: string; en: string }[];
@@ -40,10 +42,18 @@ export const tools = [
   "Power Automate", "Jupyter Notebook", "Ulis (Sopra Steria)",
 ];
 
+export const originLabels: Record<ProjectOrigin, { fr: string; en: string }> = {
+  cesi: { fr: "CESI", en: "CESI" },
+  sia: { fr: "SIA Habitat", en: "SIA Habitat" },
+  upv: { fr: "UPV Valencia", en: "UPV Valencia" },
+  personal: { fr: "Personnel", en: "Personal" },
+};
+
 export const projectsData: ProjectData[] = [
   {
     slug: "minecraft-server",
     title: "Minecraft Server",
+    origin: "personal",
     desc: {
       fr: "Création et gestion d'un serveur Minecraft communautaire.",
       en: "Creation and management of a community Minecraft server.",
@@ -73,6 +83,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "football-prediction",
     title: "Football Prediction",
+    origin: "personal",
     desc: {
       fr: "Système de prédiction de résultats de matchs de football utilisant le Machine Learning.",
       en: "Football match result prediction system using Machine Learning.",
@@ -106,6 +117,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "beauty-survey",
     title: "Beauty Survey App",
+    origin: "cesi",
     desc: {
       fr: "Application Android permettant de sonder des personnes sur la beauté de différents profils.",
       en: "Android application to survey people on the beauty of different profiles.",
@@ -133,6 +145,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "power-bi-dashboards",
     title: "Power BI Dashboards",
+    origin: "sia",
     desc: {
       fr: "Conception de tableaux de bord Power BI pour le contrôle de gestion chez SIA Habitat.",
       en: "Design of Power BI dashboards for management control at SIA Habitat.",
@@ -155,6 +168,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "ev-route-optimization",
     title: "EV Route Optimization",
+    origin: "upv",
     desc: {
       fr: "Solution Python pour l'optimisation de trajets de véhicules électriques.",
       en: "Python solution for electric vehicle route optimization.",
@@ -177,6 +191,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "data-quality-script",
     title: "Data Quality Script",
+    origin: "sia",
     desc: {
       fr: "Script Python de repérage et d'analyse des doublons dans les tiers fournisseurs.",
       en: "Python script for detecting and analyzing supplier duplicates.",
@@ -199,6 +214,7 @@ export const projectsData: ProjectData[] = [
   {
     slug: "portfolio-web",
     title: "Portfolio Web",
+    origin: "personal",
     desc: {
       fr: "Ce site portfolio personnel construit avec React, TypeScript et Tailwind CSS.",
       en: "This personal portfolio website built with React, TypeScript and Tailwind CSS.",

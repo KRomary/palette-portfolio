@@ -5,6 +5,9 @@ import { Code, Database, BarChart3, Globe, GraduationCap, Briefcase, Languages, 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import logoCesi from "@/assets/logo-cesi.png";
+import logoSia from "@/assets/logo-sia.svg";
+import logoUpv from "@/assets/logo-upv.png";
 
 const skills = [
   { icon: Database, label: { fr: "Data Science & BI", en: "Data Science & BI" }, tools: "Python, SQL, Power BI, Power Automate, DAX, Jupyter" },
@@ -52,17 +55,20 @@ const AboutPage = () => {
           {t(a.educationTitle, lang)}
         </h2>
         <Card>
-          <CardContent className="p-6">
-            <h3 className="font-semibold text-card-foreground text-lg">
-              {t({ fr: "Diplôme d'Ingénieur en Sciences du Numérique", en: "Engineering Degree in Digital Sciences" }, lang)}
-            </h3>
-            <p className="text-primary font-medium mt-1">CESI École d'Ingénieurs — Lille</p>
-            <p className="text-sm text-muted-foreground mt-1">
-              {t({ fr: "Sept. 2022 – Sept. 2025", en: "Sep 2022 – Sep 2025" }, lang)}
-            </p>
-            <Badge variant="secondary" className="mt-3">
-              {t({ fr: "Majeure : Data Science & Intelligence Artificielle", en: "Major: Data Science & Artificial Intelligence" }, lang)}
-            </Badge>
+          <CardContent className="p-6 flex items-start gap-4">
+            <img src={logoCesi} alt="CESI" className="h-14 w-14 rounded-lg object-contain shrink-0" />
+            <div>
+              <h3 className="font-semibold text-card-foreground text-lg">
+                {t({ fr: "Diplôme d'Ingénieur en Sciences du Numérique", en: "Engineering Degree in Digital Sciences" }, lang)}
+              </h3>
+              <p className="text-primary font-medium mt-1">CESI École d'Ingénieurs — Lille</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                {t({ fr: "Sept. 2022 – Sept. 2025", en: "Sep 2022 – Sep 2025" }, lang)}
+              </p>
+              <Badge variant="secondary" className="mt-3">
+                {t({ fr: "Majeure : Data Science & Intelligence Artificielle", en: "Major: Data Science & Artificial Intelligence" }, lang)}
+              </Badge>
+            </div>
           </CardContent>
         </Card>
       </section>
@@ -75,41 +81,47 @@ const AboutPage = () => {
         </h2>
         <div className="space-y-4">
           <Card>
-            <CardContent className="p-6">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <h3 className="font-semibold text-card-foreground text-lg">
-                  {t({ fr: "Alternant Chargé de Mission Data", en: "Data Mission Analyst (Apprenticeship)" }, lang)}
-                </h3>
-                <span className="text-sm text-muted-foreground whitespace-nowrap">
-                  {t({ fr: "Août 2024 – Oct. 2025", en: "Aug 2024 – Oct 2025" }, lang)}
-                </span>
+            <CardContent className="p-6 flex items-start gap-4">
+              <img src={logoSia} alt="SIA Habitat" className="h-12 w-auto shrink-0 mt-1" />
+              <div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <h3 className="font-semibold text-card-foreground text-lg">
+                    {t({ fr: "Alternant Chargé de Mission Data", en: "Data Mission Analyst (Apprenticeship)" }, lang)}
+                  </h3>
+                  <span className="text-sm text-muted-foreground whitespace-nowrap">
+                    {t({ fr: "Août 2024 – Oct. 2025", en: "Aug 2024 – Oct 2025" }, lang)}
+                  </span>
+                </div>
+                <p className="text-primary font-medium mt-1">SIA Habitat — Douai</p>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
+                  <li>{t({ fr: "Tableaux de bord Power BI pour le contrôle de gestion (vacance locative)", en: "Power BI dashboards for management control (vacancy tracking)" }, lang)}</li>
+                  <li>{t({ fr: "Automatisation du suivi d'usage via Power Automate", en: "Usage monitoring automation via Power Automate" }, lang)}</li>
+                  <li>{t({ fr: "Script Python de détection de doublons fournisseurs (Data Quality)", en: "Python script for supplier duplicate detection (Data Quality)" }, lang)}</li>
+                  <li>{t({ fr: "Spécifications techniques du lot décisionnel (requêtes SQL documentées)", en: "Technical specifications for BI module (documented SQL queries)" }, lang)}</li>
+                </ul>
               </div>
-              <p className="text-primary font-medium mt-1">SIA Habitat — Douai</p>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
-                <li>{t({ fr: "Tableaux de bord Power BI pour le contrôle de gestion (vacance locative)", en: "Power BI dashboards for management control (vacancy tracking)" }, lang)}</li>
-                <li>{t({ fr: "Automatisation du suivi d'usage via Power Automate", en: "Usage monitoring automation via Power Automate" }, lang)}</li>
-                <li>{t({ fr: "Script Python de détection de doublons fournisseurs (Data Quality)", en: "Python script for supplier duplicate detection (Data Quality)" }, lang)}</li>
-                <li>{t({ fr: "Spécifications techniques du lot décisionnel (requêtes SQL documentées)", en: "Technical specifications for BI module (documented SQL queries)" }, lang)}</li>
-              </ul>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="p-6">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <h3 className="font-semibold text-card-foreground text-lg">
-                  {t({ fr: "Stage en Laboratoire de Recherche", en: "Research Lab Internship" }, lang)}
-                </h3>
-                <span className="text-sm text-muted-foreground whitespace-nowrap">
-                  {t({ fr: "Août 2023 – Jan. 2024", en: "Aug 2023 – Jan 2024" }, lang)}
-                </span>
+            <CardContent className="p-6 flex items-start gap-4">
+              <img src={logoUpv} alt="UPV" className="h-12 w-auto shrink-0 mt-1" />
+              <div>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <h3 className="font-semibold text-card-foreground text-lg">
+                    {t({ fr: "Stage en Laboratoire de Recherche", en: "Research Lab Internship" }, lang)}
+                  </h3>
+                  <span className="text-sm text-muted-foreground whitespace-nowrap">
+                    {t({ fr: "Août 2023 – Jan. 2024", en: "Aug 2023 – Jan 2024" }, lang)}
+                  </span>
+                </div>
+                <p className="text-primary font-medium mt-1">
+                  {t({ fr: "Université Polytechnique de Valence (UPV) — Valence, Espagne", en: "Polytechnic University of Valencia (UPV) — Valencia, Spain" }, lang)}
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
+                  <li>{t({ fr: "Optimisation de trajets pour véhicules électriques en Python", en: "Route optimization for electric vehicles in Python" }, lang)}</li>
+                  <li>{t({ fr: "Intégration d'API de géocodage et données topographiques", en: "Geocoding API integration and topographic data" }, lang)}</li>
+                </ul>
               </div>
-              <p className="text-primary font-medium mt-1">
-                {t({ fr: "Université Polytechnique de Valence (UPV) — Valence, Espagne", en: "Polytechnic University of Valencia (UPV) — Valencia, Spain" }, lang)}
-              </p>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground list-disc list-inside">
-                <li>{t({ fr: "Optimisation de trajets pour véhicules électriques en Python", en: "Route optimization for electric vehicles in Python" }, lang)}</li>
-                <li>{t({ fr: "Intégration d'API de géocodage et données topographiques", en: "Geocoding API integration and topographic data" }, lang)}</li>
-              </ul>
             </CardContent>
           </Card>
         </div>
