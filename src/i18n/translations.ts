@@ -26,6 +26,8 @@ export const translations = {
       expDetail: { fr: "Alternance & stage international", en: "Apprenticeship & international internship" },
       tech: { fr: "Technologies", en: "Technologies" },
       techDetail: { fr: "Python, SQL, Power BI…", en: "Python, SQL, Power BI…" },
+      tools: { fr: "Outils", en: "Tools" },
+      toolsDetail: { fr: "VS Code, Power BI, GitHub…", en: "VS Code, Power BI, GitHub…" },
       projects: { fr: "Projets réalisés", en: "Projects built" },
       projectsDetail: { fr: "Data, Web & Mobile", en: "Data, Web & Mobile" },
     },
