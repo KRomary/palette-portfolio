@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { t } from "@/i18n/translations";
+import { t, Lang } from "@/i18n/translations";
 import { projectsData, ProjectData, RoadmapStep } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -13,7 +13,7 @@ const statusConfig = {
   planned: { label: { fr: "Planifié", en: "Planned" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
 };
 
-const RoadmapSection = ({ steps, lang }: { steps: RoadmapStep[]; lang: "fr" | "en" }) => (
+const RoadmapSection = ({ steps, lang }: { steps: RoadmapStep[]; lang: Lang }) => (
   <section>
     <h2 className="text-xl font-display font-bold text-foreground mb-6 flex items-center gap-2">
       <Map size={20} className="text-primary" />
