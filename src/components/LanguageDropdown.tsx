@@ -1,12 +1,17 @@
 import { useState, useRef, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ChevronDown } from "lucide-react";
+import { Lang } from "@/i18n/translations";
 import flagFr from "@/assets/flag-fr.png";
 import flagGb from "@/assets/flag-gb.png";
+import flagEs from "@/assets/flag-es.png";
 
-const langConfig: Record<string, { flag: string; label: string }> = {
+const allLangs: Lang[] = ["fr", "en", "es"];
+
+const langConfig: Record<Lang, { flag: string; label: string }> = {
   fr: { flag: flagFr, label: "FR" },
   en: { flag: flagGb, label: "GB" },
+  es: { flag: flagEs, label: "ES" },
 };
 
 const LanguageDropdown = () => {
@@ -22,7 +27,7 @@ const LanguageDropdown = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const otherLang = lang === "fr" ? "en" : "fr";
+  const orderedLangs = [lang, ...allLangs.filter((l) => l !== lang)];
 
   return (
     <div ref={ref} className="relative">
@@ -37,10 +42,10 @@ const LanguageDropdown = () => {
 
       {open && (
         <div className="absolute right-0 mt-1 w-36 rounded-lg border border-border bg-popover shadow-lg z-50 overflow-hidden">
-          {[lang, otherLang].map((l) => (
+          {orderedLangs.map((l) => (
             <button
               key={l}
-              onClick={() => { setLang(l as "fr" | "en"); setOpen(false); }}
+              onClick={() => { setLang(l); setOpen(false); }}
               className={`flex items-center gap-2 w-full px-3 py-2 text-sm hover:bg-accent/20 transition-colors ${
                 l === lang ? "bg-accent/10 text-primary font-semibold" : "text-foreground"
               }`}
