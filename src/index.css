@@ -104,3 +104,17 @@
     font-family: var(--font-display);
   }
 }
+
+/* Color vision accessibility filters */
+html[data-vision="protanopia"] {
+  filter: url('#protanopia-filter');
+}
+html[data-vision="deuteranopia"] {
+  filter: url('#deuteranopia-filter');
+}
+html[data-vision="tritanopia"] {
+  filter: url('#tritanopia-filter');
+}
+html[data-vision="achromatopsia"] {
+  filter: grayscale(100%);
+}

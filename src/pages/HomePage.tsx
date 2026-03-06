@@ -19,7 +19,7 @@ const HomePage = () => {
           transition={{ duration: 0.5, type: "spring" }}
           className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-secondary border-4 border-primary/30 mb-8 flex items-center justify-center text-3xl sm:text-4xl font-display font-black text-primary"
         >
-          KN
+          KR
         </motion.div>
 
         <motion.p
