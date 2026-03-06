@@ -76,32 +76,55 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden bg-header border-b border-border"
           >
-            <div className="flex flex-col gap-3 p-4">
-              {links.map((link) => (
+            <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-3 p-4 items-start">
+              <Link
+                to={links[0].to}
+                onClick={() => setMobileOpen(false)}
+                className={`text-sm font-medium ${
+                  location.pathname === links[0].to ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                {links[0].label}
+              </Link>
+              <div className="justify-self-end">
+                <ThemeToggle />
+              </div>
+
+              <Link
+                to={links[1].to}
+                onClick={() => setMobileOpen(false)}
+                className={`text-sm font-medium ${
+                  location.pathname === links[1].to ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                {links[1].label}
+              </Link>
+              <div className="justify-self-end relative z-[70]">
+                <LanguageDropdown />
+              </div>
+
+              {links.slice(2).map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium ${
+                  className={`text-sm font-medium col-span-2 ${
                     location.pathname === link.to ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
+
               <Link
                 to="/settings"
                 onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium ${
+                className={`text-sm font-medium col-span-2 ${
                   location.pathname === "/settings" ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {t(translations.nav.settings, lang)}
               </Link>
-              <div className="flex items-center gap-3 pt-2 flex-wrap">
-                <LanguageDropdown />
-                <ThemeToggle />
-              </div>
             </div>
           </motion.div>
         )}
