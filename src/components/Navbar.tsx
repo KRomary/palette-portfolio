@@ -6,6 +6,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
+import logoKR from "@/assets/logo-kr.png";
 
 const Navbar = () => {
   const { lang } = useLanguage();
@@ -23,9 +24,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 relative">
         {/* Logo left */}
-        <Link to="/" className="font-display text-xl font-black tracking-tight shrink-0">
-          <span className="text-primary inline-block" style={{ transform: "scaleX(-1)" }}>K</span>
-          <span className="text-foreground -ml-0.5">Romary</span>
+        <Link to="/" className="shrink-0">
+          <img src={logoKR} alt="KRomary" className="h-8 object-contain" />
         </Link>
 
         {/* Center links */}
