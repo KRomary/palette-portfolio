@@ -76,55 +76,39 @@ const Navbar = () => {
             exit={{ height: 0, opacity: 0 }}
             className="md:hidden bg-header border-b border-border"
           >
-            <div className="grid grid-cols-[1fr_auto] gap-x-4 gap-y-3 p-4 items-start">
-              <Link
-                to={links[0].to}
-                onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium ${
-                  location.pathname === links[0].to ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {links[0].label}
-              </Link>
-              <div className="justify-self-end">
-                <ThemeToggle />
-              </div>
-
-              <Link
-                to={links[1].to}
-                onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium ${
-                  location.pathname === links[1].to ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {links[1].label}
-              </Link>
-              <div className="justify-self-end relative z-[70]">
-                <LanguageDropdown />
-              </div>
-
-              {links.slice(2).map((link) => (
+            <div className="flex p-4 gap-4">
+              {/* Left: all links */}
+              <div className="flex flex-col gap-3 flex-1">
+                {links.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setMobileOpen(false)}
+                    className={`text-sm font-medium ${
+                      location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
                 <Link
-                  key={link.to}
-                  to={link.to}
+                  to="/settings"
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium col-span-2 ${
-                    location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+                  className={`text-sm font-medium ${
+                    location.pathname === "/settings" ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
-                  {link.label}
+                  {t(translations.nav.settings, lang)}
                 </Link>
-              ))}
+              </div>
 
-              <Link
-                to="/settings"
-                onClick={() => setMobileOpen(false)}
-                className={`text-sm font-medium col-span-2 ${
-                  location.pathname === "/settings" ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {t(translations.nav.settings, lang)}
-              </Link>
+              {/* Right: controls */}
+              <div className="flex flex-col items-end gap-3 shrink-0">
+                <ThemeToggle />
+                <div className="relative z-[70]">
+                  <LanguageDropdown />
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
