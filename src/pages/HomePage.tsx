@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, t } from "@/i18n/translations";
+import { technologies, tools, projectsData } from "@/data/portfolio";
 import StatCard from "@/components/StatCard";
 import { ArrowRight } from "lucide-react";
 
 const HomePage = () => {
   const { lang } = useLanguage();
   const s = translations.home;
+
+  const techCount = technologies.length;
+  const toolsCount = tools.length;
+  const projectsCount = projectsData.filter(p => p.status !== "planned").length;
 
   return (
     <div className="flex flex-col items-center">
@@ -82,11 +87,12 @@ const HomePage = () => {
 
       {/* Stats */}
       <section className="w-full max-w-4xl mx-auto px-4 pb-16 sm:pb-20">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <StatCard value="5+" label={t(s.stats.years, lang)} detail={t(s.stats.yearsDetail, lang)} />
-          <StatCard value="6+" label={t(s.stats.exp, lang)} detail={t(s.stats.expDetail, lang)} />
-          <StatCard value="20+" label={t(s.stats.tech, lang)} detail={t(s.stats.techDetail, lang)} />
-          <StatCard value="6+" label={t(s.stats.projects, lang)} detail={t(s.stats.projectsDetail, lang)} />
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+          <StatCard value="5+" label={t(s.stats.years, lang)} detail={t(s.stats.yearsDetail, lang)} glow />
+          <StatCard value="6+" label={t(s.stats.exp, lang)} detail={t(s.stats.expDetail, lang)} glow />
+          <StatCard value={`${techCount}+`} label={t(s.stats.tech, lang)} detail={t(s.stats.techDetail, lang)} glow />
+          <StatCard value={`${toolsCount}+`} label={t(s.stats.tools, lang)} detail={t(s.stats.toolsDetail, lang)} glow />
+          <StatCard value={`${projectsCount}`} label={t(s.stats.projects, lang)} detail={t(s.stats.projectsDetail, lang)} glow />
         </div>
       </section>
     </div>
