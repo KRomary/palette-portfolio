@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 30 33% 93%; /* warm cream #F5EDE0 */
+    --background: 34 44% 95%; /* #FBF4E9 */
     --foreground: 16 20% 25%;
 
     --card: 20 12% 85%; /* brown-grey blend #DDD5CE */
