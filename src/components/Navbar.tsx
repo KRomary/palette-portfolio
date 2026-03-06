@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import { Sun, Moon, Menu, X } from "lucide-react";
-import { useTheme } from "@/contexts/ThemeContext";
+import { Menu, X, Settings } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ThemeToggle";
+import LanguageDropdown from "@/components/LanguageDropdown";
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
-  const { lang, setLang } = useLanguage();
+  const { lang } = useLanguage();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -24,11 +24,11 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <Link to="/" className="font-display text-xl font-black tracking-tight">
           <span className="text-primary">K.</span>
-          <span className="text-foreground">Nromary</span>
+          <span className="text-foreground">Romary</span>
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-5">
           {links.map((link) => (
             <Link
               key={link.to}
@@ -41,21 +41,18 @@ const Navbar = () => {
             </Link>
           ))}
 
-          {/* Language toggle */}
-          <button
-            onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-            className="text-xs font-semibold px-2 py-1 rounded border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors"
-          >
-            {lang === "fr" ? "EN" : "FR"}
-          </button>
+          <LanguageDropdown />
+          <ThemeToggle />
 
-          {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-switch-track text-switch-thumb hover:opacity-80 transition-opacity"
+          <Link
+            to="/settings"
+            className={`p-2 rounded-full hover:bg-accent/20 transition-colors ${
+              location.pathname === "/settings" ? "text-primary" : "text-muted-foreground"
+            }`}
+            aria-label="Settings"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
+            <Settings size={18} />
+          </Link>
         </div>
 
         {/* Mobile menu button */}
@@ -86,19 +83,18 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <div className="flex items-center gap-3 pt-2">
-                <button
-                  onClick={() => setLang(lang === "fr" ? "en" : "fr")}
-                  className="text-xs font-semibold px-2 py-1 rounded border border-border text-muted-foreground"
-                >
-                  {lang === "fr" ? "EN" : "FR"}
-                </button>
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-full bg-switch-track text-switch-thumb"
-                >
-                  {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-                </button>
+              <Link
+                to="/settings"
+                onClick={() => setMobileOpen(false)}
+                className={`text-sm font-medium ${
+                  location.pathname === "/settings" ? "text-primary" : "text-muted-foreground"
+                }`}
+              >
+                {t(translations.nav.settings, lang)}
+              </Link>
+              <div className="flex items-center gap-3 pt-2 flex-wrap">
+                <LanguageDropdown />
+                <ThemeToggle />
               </div>
             </div>
           </motion.div>
