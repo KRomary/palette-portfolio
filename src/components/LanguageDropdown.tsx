@@ -8,8 +8,8 @@ const flags: Record<string, string> = {
 };
 
 const labels: Record<string, string> = {
-  fr: "Français",
-  en: "English",
+  fr: "FR",
+  en: "GB",
 };
 
 const LanguageDropdown = () => {
