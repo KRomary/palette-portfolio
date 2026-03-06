@@ -6,40 +6,40 @@
 
 @layer base {
   :root {
-    --background: 25 30% 94%; /* #FBF4E9 */
+    --background: 30 33% 93%; /* warm cream #F5EDE0 */
     --foreground: 16 20% 25%;
 
-    --card: 270 18% 91%; /* #E9E1F0 */
+    --card: 20 12% 85%; /* brown-grey blend #DDD5CE */
     --card-foreground: 16 20% 25%;
 
-    --popover: 25 30% 94%;
+    --popover: 30 33% 93%;
     --popover-foreground: 16 20% 25%;
 
     --primary: 16 20% 30%; /* #5D4037 */
-    --primary-foreground: 25 30% 94%;
+    --primary-foreground: 30 33% 95%;
 
-    --secondary: 25 25% 90%; /* #F3E5D8 */
+    --secondary: 25 20% 88%; /* #F0E4D7 */
     --secondary-foreground: 16 20% 25%;
 
-    --muted: 25 20% 88%;
+    --muted: 25 15% 86%;
     --muted-foreground: 16 10% 45%;
 
-    --accent: 25 40% 65%; /* caramel accent for light */
+    --accent: 25 40% 65%;
     --accent-foreground: 16 20% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 25 15% 82%;
-    --input: 25 15% 82%;
+    --border: 20 10% 78%;
+    --input: 20 10% 78%;
     --ring: 16 20% 30%;
 
     --radius: 0.75rem;
 
-    --switch-track: 16 15% 80%; /* #D7CCC8 */
-    --switch-thumb: 16 20% 30%; /* #5D4037 */
+    --switch-track: 16 15% 80%;
+    --switch-thumb: 16 20% 30%;
 
-    --header: 25 25% 90%; /* #F3E5D8 */
+    --header: 25 22% 89%; /* slightly warmer header */
 
     --font-display: 'Sora', sans-serif;
     --font-body: 'Space Grotesk', sans-serif;
