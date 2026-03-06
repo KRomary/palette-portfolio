@@ -13,9 +13,9 @@ import logoSia from "@/assets/logo-sia.jpg";
 import logoUpv from "@/assets/logo-upv.png";
 
 const statusConfig = {
-  done: { label: { fr: "Terminé", en: "Done" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
-  "in-progress": { label: { fr: "En cours", en: "In Progress" }, color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20", icon: Clock },
-  planned: { label: { fr: "Planifié", en: "Planned" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
+  done: { label: { fr: "Terminé", en: "Done", es: "Terminado" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
+  "in-progress": { label: { fr: "En cours", en: "In Progress", es: "En curso" }, color: "bg-yellow-500/10 text-yellow-600 border-yellow-500/20", icon: Clock },
+  planned: { label: { fr: "Planifié", en: "Planned", es: "Planificado" }, color: "bg-muted text-muted-foreground border-border", icon: Circle },
 };
 
 const originLogos: Record<ProjectOrigin, string | null> = {
@@ -42,7 +42,7 @@ const ProjectsPage = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl md:text-4xl font-display font-black text-primary mb-6"
       >
-        {t({ fr: "Mes Projets", en: "My Projects" }, lang)}
+        {t({ fr: "Mes Projets", en: "My Projects", es: "Mis Proyectos" }, lang)}
       </motion.h1>
 
       {/* Origin filter */}
@@ -51,7 +51,7 @@ const ProjectsPage = () => {
           onClick={() => setOriginFilter("all")}
           className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${originFilter === "all" ? "bg-primary text-primary-foreground border-primary" : "bg-card text-card-foreground border-border hover:border-primary/50"}`}
         >
-          {t({ fr: "Toutes provenances", en: "All origins" }, lang)}
+          {t({ fr: "Toutes provenances", en: "All origins", es: "Todos los orígenes" }, lang)}
         </button>
         {(Object.keys(originLabels) as ProjectOrigin[]).map((key) => {
           const logo = originLogos[key];
@@ -70,9 +70,9 @@ const ProjectsPage = () => {
 
       <Tabs defaultValue="all" className="mb-8">
         <TabsList>
-          <TabsTrigger value="all">{t({ fr: "Tous", en: "All" }, lang)}</TabsTrigger>
-          <TabsTrigger value="ongoing">{t({ fr: "En cours", en: "Ongoing" }, lang)} ({applyOriginFilter(ongoingProjects).length})</TabsTrigger>
-          <TabsTrigger value="done">{t({ fr: "Terminés", en: "Completed" }, lang)} ({applyOriginFilter(doneProjects).length})</TabsTrigger>
+          <TabsTrigger value="all">{t({ fr: "Tous", en: "All", es: "Todos" }, lang)}</TabsTrigger>
+          <TabsTrigger value="ongoing">{t({ fr: "En cours", en: "Ongoing", es: "En curso" }, lang)} ({applyOriginFilter(ongoingProjects).length})</TabsTrigger>
+          <TabsTrigger value="done">{t({ fr: "Terminés", en: "Completed", es: "Completados" }, lang)} ({applyOriginFilter(doneProjects).length})</TabsTrigger>
         </TabsList>
 
         {(["all", "ongoing", "done"] as const).map((tab) => {
