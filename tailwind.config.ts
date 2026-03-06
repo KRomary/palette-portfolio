@@ -52,8 +52,8 @@ export default {
         "switch-thumb": "hsl(var(--switch-thumb))",
       },
       fontFamily: {
-        display: ['Playfair Display', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Sora', 'sans-serif'],
+        body: ['Space Grotesk', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
