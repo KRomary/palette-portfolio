@@ -23,8 +23,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto relative flex items-center justify-between h-16 px-4">
         {/* Logo left */}
-        <Link to="/" className="shrink-0">
-          <img src={theme === "dark" ? logoKR : logoKRLight} alt="KRomary" className="h-8 object-contain" />
+        <Link to="/" className="shrink-0 font-display font-bold text-xl text-foreground tracking-tight">
+          <span className="text-primary">K</span>Romary
         </Link>
 
         {/* Center links */}
