@@ -6,6 +6,7 @@ import { projectsData, ProjectData, RoadmapStep } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink, CheckCircle2, Clock, Circle, Target, Wrench, Calendar, Coins, Map, FileText } from "lucide-react";
+import MinecraftDashboard from "@/components/MinecraftDashboard";
 
 const statusConfig = {
   done: { label: { fr: "Terminé", en: "Done", es: "Terminado" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
