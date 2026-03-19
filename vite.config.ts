@@ -11,6 +11,12 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    allowedHosts: [
+      'kromary.fr',
+      'www.kromary.fr',
+      'localhost',
+      '192.168.1.31',
+    ]
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
