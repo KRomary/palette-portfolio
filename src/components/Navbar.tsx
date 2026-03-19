@@ -9,7 +9,6 @@ import LanguageDropdown from "@/components/LanguageDropdown";
 
 const Navbar = () => {
   const { lang } = useLanguage();
-  const { theme } = useTheme();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
