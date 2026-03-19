@@ -70,7 +70,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-header border-b border-border"
+            className="lg:hidden bg-header border-b border-border"
           >
             <div className="flex p-4 gap-4">
               {/* Left: all links */}
