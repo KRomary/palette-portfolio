@@ -6,9 +6,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
-import { useTheme } from "@/contexts/ThemeContext";
-import logoKR from "@/assets/logo-kr.png";
-import logoKRLight from "@/assets/logo-kr-light.png";
 
 const Navbar = () => {
   const { lang } = useLanguage();
