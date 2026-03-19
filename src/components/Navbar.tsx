@@ -20,8 +20,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-header backdrop-blur-xl border-b border-border shadow-sm">
-      <div className="container mx-auto relative flex items-center justify-between h-16 px-4">
+    <nav className="sticky top-0 z-50 border-b border-border shadow-sm">
+      {/* Blur gradient overlay at bottom edge */}
+      <div className="absolute inset-x-0 -bottom-6 h-6 bg-gradient-to-b from-header/80 to-transparent pointer-events-none backdrop-blur-sm z-40" />
+      <div className="relative bg-header container mx-auto flex items-center justify-between h-16 px-4">
         {/* Logo left */}
         <Link to="/" className="shrink-0 font-display font-bold text-xl text-foreground tracking-tight">
           <span className="text-primary">K</span>Romary
