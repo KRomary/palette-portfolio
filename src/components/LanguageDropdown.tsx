@@ -41,7 +41,7 @@ const LanguageDropdown = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 bottom-full mb-1 w-36 rounded-lg border border-border bg-popover text-popover-foreground shadow-lg z-[90] overflow-hidden">
+        <div className="absolute right-0 mt-1 w-36 rounded-lg border border-border bg-popover text-popover-foreground shadow-lg z-[100] overflow-hidden">
           {orderedLangs.map((l) => (
             <button
               key={l}
