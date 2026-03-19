@@ -39,7 +39,7 @@ const t = (obj: { fr: string; en: string; es?: string }, lang: Lang) =>
   obj[lang] || obj.en;
 
 // ⚠️ Change this to your actual server API URL
-const API_URL = "https://your-server-ip:5000/api/status";
+const API_URL = "http://127.0.0.1:5000/api/status";
 
 const MinecraftDashboard = () => {
   const { lang } = useLanguage();
