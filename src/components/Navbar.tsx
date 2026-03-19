@@ -69,13 +69,13 @@ const Navbar = () => {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
-            animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
-            exit={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
+            initial={{ opacity: 0, y: -12, scaleY: 0.96 }}
+            animate={{ opacity: 1, y: 0, scaleY: 1 }}
+            exit={{ opacity: 0, y: -12, scaleY: 0.96 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="lg:hidden absolute top-full left-0 right-0 bg-header border-b border-border overflow-visible shadow-lg z-50"
+            className="lg:hidden absolute top-full left-0 right-0 origin-top bg-header border-b border-border overflow-visible shadow-lg z-50"
           >
-            <div className="flex p-4 pb-16 gap-4">
+            <div className="flex p-4 gap-4">
               {/* Left: all links */}
               <div className="flex flex-col gap-3 flex-1">
                 {links.map((link) => (
