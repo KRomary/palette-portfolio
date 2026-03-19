@@ -75,7 +75,7 @@ const Navbar = () => {
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="lg:hidden absolute top-full left-0 right-0 bg-header border-b border-border overflow-visible shadow-lg z-50"
           >
-            <div className="flex p-4 gap-4">
+            <div className="flex p-4 pb-16 gap-4">
               {/* Left: all links */}
               <div className="flex flex-col gap-3 flex-1">
                 {links.map((link) => (
