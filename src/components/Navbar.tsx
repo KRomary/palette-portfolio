@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
+    <nav className="sticky top-0 z-50 bg-header backdrop-blur-xl border-b border-border shadow-sm">
       <div className="container mx-auto relative flex items-center justify-between h-16 px-4">
         {/* Logo left */}
         <Link to="/" className="shrink-0 font-display font-bold text-xl text-foreground tracking-tight">
