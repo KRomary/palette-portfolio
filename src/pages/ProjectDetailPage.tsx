@@ -105,6 +105,9 @@ const ProjectDetailPage = () => {
         ))}
       </div>
 
+      {/* Minecraft Dashboard */}
+      {project.slug === "minecraft-server" && <MinecraftDashboard />}
+
       {/* Info grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {project.objectives && (
