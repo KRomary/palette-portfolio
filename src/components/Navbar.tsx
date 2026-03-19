@@ -6,13 +6,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageDropdown from "@/components/LanguageDropdown";
-import { useTheme } from "@/contexts/ThemeContext";
-import logoKR from "@/assets/logo-kr.png";
-import logoKRLight from "@/assets/logo-kr-light.png";
 
 const Navbar = () => {
   const { lang } = useLanguage();
-  const { theme } = useTheme();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -27,12 +23,12 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-header/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto relative flex items-center justify-between h-16 px-4">
         {/* Logo left */}
-        <Link to="/" className="shrink-0">
-          <img src={theme === "dark" ? logoKR : logoKRLight} alt="KRomary" className="h-8 object-contain" />
+        <Link to="/" className="shrink-0 font-display font-bold text-xl text-foreground tracking-tight">
+          <span className="text-primary">K</span>Romary
         </Link>
 
         {/* Center links */}
-        <div className="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden lg:flex items-center gap-5 absolute left-1/2 -translate-x-1/2">
           {links.map((link) => (
             <Link
               key={link.to}
@@ -47,7 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Right controls */}
-        <div className="hidden md:flex items-center gap-3 shrink-0">
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
           <LanguageDropdown />
           <ThemeToggle />
           <Link
@@ -62,7 +58,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -74,7 +70,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-header border-b border-border"
+            className="lg:hidden bg-header border-b border-border"
           >
             <div className="flex p-4 gap-4">
               {/* Left: all links */}
