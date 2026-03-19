@@ -6,6 +6,7 @@ import { projectsData, ProjectData, RoadmapStep } from "@/data/portfolio";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ExternalLink, CheckCircle2, Clock, Circle, Target, Wrench, Calendar, Coins, Map, FileText } from "lucide-react";
+import MinecraftDashboard from "@/components/MinecraftDashboard";
 
 const statusConfig = {
   done: { label: { fr: "Terminé", en: "Done", es: "Terminado" }, color: "bg-green-500/10 text-green-600 border-green-500/20", icon: CheckCircle2 },
@@ -103,6 +104,9 @@ const ProjectDetailPage = () => {
           <span key={tag} className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">{tag}</span>
         ))}
       </div>
+
+      {/* Minecraft Dashboard */}
+      {project.slug === "minecraft-server" && <MinecraftDashboard />}
 
       {/* Info grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

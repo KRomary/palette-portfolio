@@ -26,6 +26,7 @@ export interface ProjectData {
   cost?: { fr: string; en: string; es?: string };
   roadmap?: RoadmapStep[];
   docs?: { label: { fr: string; en: string; es?: string }; url: string }[];
+  apiUrl?: string;
 }
 
 export const technologies = [
