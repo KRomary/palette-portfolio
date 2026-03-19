@@ -72,7 +72,7 @@ const Navbar = () => {
             initial={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
             animate={{ clipPath: "inset(0 0 0% 0)", opacity: 1 }}
             exit={{ clipPath: "inset(0 0 100% 0)", opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="lg:hidden absolute top-full left-0 right-0 bg-header border-b border-border overflow-visible shadow-lg z-50"
           >
             <div className="flex p-4 gap-4">
