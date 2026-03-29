@@ -18,6 +18,9 @@
 </head>
 
   <body>
+    <script>
+      (function(){var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){if(t==='dark')document.documentElement.classList.add('dark');}else{document.documentElement.classList.add('dark');}})();
+    </script>
     <div id="root"></div>
     <!-- SVG filters for color vision deficiency simulation -->
     <svg style="position:absolute;width:0;height:0" aria-hidden="true">
